@@ -5,6 +5,13 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },{
+    path: 'tab3/:id',
+    loadChildren: () => import('./tab3/tab3.module').then(m => m.Tab3PageModule)
+  },
+  {
+    path: 'crear-comentario',
+    loadChildren: () => import('./crear-comentario/crear-comentario.module').then( m => m.CrearComentarioPageModule)
   }
 ];
 @NgModule({

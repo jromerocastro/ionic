@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="personalizado">
+      <ion-title class="ion-text-center">Nuevo Comentario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="comentario" (ngSubmit)="guardarDatos()">
+	  <ion-grid>
+        <ion-row>
+  		    <ion-col size="12">
+  		      <ion-item>
+  		      	<ion-label position="floating" color="primary">Título</ion-label>
+  		      	<ion-input type="text" formControlName="com_titulo" class="form-control"></ion-input>
+  		      </ion-item>
+  		      	<div id="note" *ngFor="let validation of mensajes_validacion.com_titulo">
+  		      	    <ion-note color="danger" *ngIf="getError('com_titulo')[(validation.type)]">
+  		      	      <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+  		      	    </ion-note>
+  		      	</div>
+  		    </ion-col>
+  		    <ion-col size="12">
+  		      <ion-item>
+  		          <ion-label position="floating" color="primary">Descripción</ion-label>
+  		          <ion-input type="text" formControlName="com_descripcion" class="form-control"></ion-input>
+  		      </ion-item>
+  		      <div id="note" *ngFor="let validation of mensajes_validacion.com_descripcion">
+  		          <ion-note color="danger" *ngIf="getError('com_descripcion')[(validation.type)]">
+  		            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+  		          </ion-note>
+  		      </div>
+  		    </ion-col>
+  		    <ion-col size="12">
+  		      <ion-item>
+  		          <ion-label position="floating" color="primary">Nombre del creador</ion-label>
+  		          <ion-input type="text" formControlName="com_nombre" class="form-control"></ion-input>
+  		      </ion-item>
+  		      <div id="note" *ngFor="let validation of mensajes_validacion.com_nombre">
+  		          <ion-note color="danger" *ngIf="getError('com_nombre')[(validation.type)]">
+  		            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+  		          </ion-note>
+  		      </div>
+  		    </ion-col>
+  		    <ion-col size="12">
+  		      <ion-item>
+  		          <ion-label position="floating" color="primary">Estado</ion-label>
+  		          <ion-select formControlName="com_estado" class="form-control">
+  		            <ion-select-option *ngFor="let estado of estados" value="{{estado.est_id}}">{{ estado.est_nombre }}</ion-select-option>
+  		          </ion-select>
+  		      </ion-item>
+  		      <div id="note" *ngFor="let validation of mensajes_validacion.com_estado">
+  		          <ion-note color="danger" *ngIf="getError('com_estado')[(validation.type)]">
+  		            <ion-icon name="information-circle-outline"></ion-icon> {{validation.message }}
+  		          </ion-note>
+  		      </div>
+  		    </ion-col>
+  		    <ion-col size="12">
+  		        <p class="ion-text-center">
+  		            <ion-button type="submit" [disabled]="!comentario.valid">Guardar</ion-button>
+  		        </p>
+  		    </ion-col>
+  		</ion-row>
+  	    </ion-grid>
+    </form>
+</ion-content>

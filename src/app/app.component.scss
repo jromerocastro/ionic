@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Young Serif';
+    src: url("../assets/font/DancingScript.ttf"); //change url accordingly
+}
+
+:root {
+--ion-font-family: 'Young Serif';
+}
+
+.ion-color-personalizado {
+    --ion-color-base: #90606e !important;
+    --ion-color-base-rgb: rgb(200,10,10) !important;
+    --ion-color-contrast: #ffffff !important;
+    --ion-color-contrast-rgb: rgb(255,255,255) !important;
+    --ion-color-shade: #5c547f !important;
+    --ion-color-tint: #77709b !important;
+    }
